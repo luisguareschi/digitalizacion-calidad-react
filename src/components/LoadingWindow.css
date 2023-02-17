@@ -1,0 +1,15 @@
+.loading-window {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,42,121,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+
+.loading-window h1 {
+    color: white;
+    font-size: 100px;
+}

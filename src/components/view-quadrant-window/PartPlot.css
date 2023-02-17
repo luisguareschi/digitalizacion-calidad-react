@@ -1,0 +1,47 @@
+.part-plot-outer-container {
+    width: 50%;
+    height: 100%;
+    border-style: solid;
+    border-color: rgba(169, 169, 169, 0.18);
+    border-radius: 10px;
+    border-width: 3px;
+    padding: 0;
+    overflow: auto;
+    margin-left: 5px;
+}
+
+.part-plot-outer-container button {
+    margin-top: 0 !important;
+}
+
+.part-plot-outer-container .active button {
+    margin-top: 0 !important;
+}
+
+.nav-tabs {
+    --bs-nav-tabs-border-width: 3px !important;
+    --bs-nav-tabs-border-color: rgb(237, 238, 238);
+    --bs-nav-tabs-border-radius: 6px;
+    --bs-nav-tabs-link-active-border-color:  #ededee  #ededee #fff;
+    margin-bottom: 0 !important;
+}
+
+.quadrant-part-plot {
+    height: 65vh;
+    /*border-style: solid;*/
+    /*border-width: 2px;*/
+    /*border-color: #2c3e50;*/
+}
+
+.part-info-container {
+    display: flex;
+    flex-direction: column;
+    background: rgba(204, 204, 204, 0.32);
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 10px 20px;
+    padding: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+

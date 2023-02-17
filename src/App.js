@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {useEffect} from "react";
+import SelectPlaneWindow from "./components/select-plane-window/SelectPlaneWindow";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import CreatePlaneWindow from "./components/create-plane-window/CreatePlaneWindow";
+import ViewQuadrantWindow from "./components/view-quadrant-window/ViewQuadrantWindow";
+import ViewPartWindow from "./components/view-part-window/ViewPartWindow";
+import LoadPlaneDataWindow from "./components/LoadPlaneDataWindow";
 
 function App() {
-  return (
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter>
+            <Routes>
+                <Route path={'/'} element={<SelectPlaneWindow/>}/>
+                <Route path={'/create_plane'} element={<CreatePlaneWindow/>}/>
+                <Route path={'/quadrant_view'} element={<ViewQuadrantWindow/>}/>
+                <Route path={'/part_view'} element={<ViewPartWindow/>}/>
+                <Route path={'/load_plane'} element={<LoadPlaneDataWindow/>}/>
+            </Routes>
+        </BrowserRouter>
     </div>
-  );
+    );
 }
 
 export default App;

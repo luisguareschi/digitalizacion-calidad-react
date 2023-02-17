@@ -1,0 +1,50 @@
+
+.part-view-container {
+    background: #ffffff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*padding-left: 5px;*/
+}
+
+.part-view-container-left{
+    background: #ffffff;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.part-view-grid-item {
+    background: #ffffff;
+    border-style: solid;
+    border-color: rgba(169, 169, 169, 0.18);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.part-list-selector-container {
+    height: 83%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.select-part-input {
+    width: 100%;
+    border-style: solid !important;
+    border-color: #fb0db8 !important;
+}
+
+.part-list-records-table {
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.select-record-input {
+    width: 100%;
+    height: 30px;
+    padding: 0;
+}

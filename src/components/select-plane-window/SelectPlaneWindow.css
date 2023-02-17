@@ -1,0 +1,95 @@
+
+.select-plane-container {
+    background-color: white;
+    /*width: 50vh;*/
+    /*height: 61vh;*/
+    border-radius: 40px;
+    /*border-color: #89b7ff;*/
+    /*border-width: medium;*/
+    /*border-style: solid;*/
+    margin: 0;
+    padding: 40px 20px;
+    max-width: 25vw !important;
+    min-width: 400px !important;
+}
+
+
+.select-plane-container h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.planes-list-table {
+    height: 250px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: #f0f0f1;*/
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(169, 169, 169, 0.18);
+}
+
+.planes-list-table h6 {
+    color: dimgrey;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.td-select-plane-window {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+td:hover {
+    background-color: rgba(169, 169, 169, 0.57);
+}
+
+/*td:active {*/
+/*    background-color: #0d6efb;*/
+/*}*/
+
+
+
+.start-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.start-buttons Button{
+    margin: 20px 10px;
+}
+
+.home-window {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,42,121,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+button {
+    font-size: 18px !important;
+    font-weight: normal !important;
+}
+
+.selected-row {
+    background-color: rgb(13, 110, 251) !important;
+}
+
+.selected-row td, .selected-row h6 {
+    color: white !important;
+}
+
+.homescreen-logo {
+    width: 80px;
+    height: 80px;
+}
