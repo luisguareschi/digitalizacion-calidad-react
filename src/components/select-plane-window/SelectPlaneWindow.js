@@ -23,6 +23,15 @@ const SelectPlaneWindow = () => {
         fetch("http://localhost:5000/get_planes_list", body)
             .then(response => response.json())
             .then(json => {
+                // ordenar por fecha de modifiacion
+                let newDict = {}
+                // eslint-disable-next-line array-callback-return
+                Object.keys(json).map(key => {
+                    let val = json[key]
+                    let newKey = key.slice(2, key.length)
+                    newDict[newKey] = val
+                })
+                json = newDict
                 setplanesList(json)
                 localStorage.setItem("planeNames", JSON.stringify(Object.keys(json)))
             })
@@ -79,7 +88,7 @@ const SelectPlaneWindow = () => {
 
     // borrar el record
     const deleteRecord = () => {
-        if (window.confirm("Are you sure you want to delete this record? The action cannot be undone")) {
+        if (window.confirm("Are you sure you want to delete this record? This action cannot be undone")) {
             let planes = {...planesList}
             let index = 0
             for (let planeName in planes) {

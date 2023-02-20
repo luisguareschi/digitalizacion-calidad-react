@@ -12,7 +12,13 @@ def read_xlsx(file_path):
 
 
 def get_planes_list():
-    list = os.listdir(records_folder)
+    # list = os.listdir(records_folder)
+    list = [s for s in os.listdir(records_folder)
+         if os.path.isfile(os.path.join(records_folder, s))]
+    list.sort(key=lambda s: os.path.getmtime(os.path.join(records_folder, s)), reverse=True)
+    for index, l in enumerate(list):
+        l = f'{index}-{l}'
+        list[index] = l
     result = {}
     for item in list:
         splitted = item.split('_')
@@ -44,4 +50,4 @@ def delete_record(filename):
 
 
 if __name__ == '__main__':
-    pass
+    print(get_planes_list())

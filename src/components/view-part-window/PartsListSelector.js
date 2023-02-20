@@ -30,11 +30,12 @@ const PartsListSelector = (props) => {
                             style = {background:'#0D6EFBFF', fontColor: "white", fontWeight: 'bold'}
                         }
                         let partChecked = registeredParts.includes(name)
+                        let checkColor = style.background === '#0D6EFBFF' ? "white": '#0D6EFBFF'
                         return (
                             <tr key={index} style={style}>
                                 <td onDoubleClick={(event) => setSelectedPartName(name)} style={{color: style.fontColor}} className={'td-select-plane-window'}>
                                     {name}
-                                    {partChecked ? <BsFillCheckSquareFill style={{color: "#0D6EFBFF", marginLeft: 10}}/> : ''}
+                                    {partChecked ? <BsFillCheckSquareFill style={{color: checkColor, marginLeft: 10}}/> : ''}
                                 </td>
                             </tr>
                         )

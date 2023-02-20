@@ -38,6 +38,13 @@ const AddRecordPopUp = (props) => {
             quadrant: props.pointData.quadrant,
         }
 
+        for (let key in data) {
+            if (data[key] === '') {
+                alert(`The field "${key}" cannot be blank.`)
+                return
+            }
+        }
+
         props.addRecord(data)
         // props.onHide()
     }

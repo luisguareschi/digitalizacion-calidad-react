@@ -1,6 +1,7 @@
 import {Container, Nav, Navbar} from "react-bootstrap";
 import "./NavigationBar.css"
 import {useEffect, useState} from "react";
+import {RiPlaneFill} from "react-icons/ri";
 
 const NavigationBar = (props) => {
     const [quadrantClicked, setquadrantClicked] = useState(false)
@@ -28,7 +29,12 @@ const NavigationBar = (props) => {
     return (
         <Navbar bg="primary" variant="dark">
             <Container>
-                <Navbar.Brand>{`${props.planeName} - ${props.planeType}`}</Navbar.Brand>
+                <Navbar.Brand>
+                    <div className={'nav-bar-plane-title'}>
+                        <RiPlaneFill />
+                        {`${props.planeName} - ${props.planeType}`}
+                    </div>
+                </Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="/">Select Aircraft</Nav.Link>
                     <Nav.Link href="/quadrant_view" className={quadrantClicked ? 'active-tab' : ''}>Quadrant View</Nav.Link>

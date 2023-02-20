@@ -85,7 +85,7 @@ const SelectedPartPlot = (props) => {
                         z: partData.bluez,
                         type: 'scatter3d',
                         mode: 'markers',
-                        marker: {color: 'blue', size:4},
+                        marker: {color: 'blue', size:5},
                         text: partData.blueInfo,
                         hovertemplate: '' +
                             '<b>Point ID:</b> %{text.id}<br>' +

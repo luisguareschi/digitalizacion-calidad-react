@@ -39,12 +39,36 @@
 
 .part-list-records-table {
     height: 100%;
-    overflow: scroll;
+    /*overflow: scroll;*/
     overflow-x: hidden;
+}
+
+.part-list-records-table .table-responsive{
+    overflow-x: unset;
 }
 
 .select-record-input {
     width: 100%;
     height: 30px;
     padding: 0;
+}
+
+.column-filter {
+    font-weight: normal;
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: 0 !important;
+    z-index: 1000;
+}
+
+.delete-record-button {
+    margin: 0;
+    color: #0d6efb;
+    font-size: 30px !important;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-style: none;
+    background: none;
+    width: max-content !important;
 }
