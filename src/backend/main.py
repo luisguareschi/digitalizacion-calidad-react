@@ -7,6 +7,8 @@ from Packages.constants import records_folder
 from Packages.database_manager import read_xlsx, get_planes_list, create_new_record, delete_record
 import pandas as pd
 
+from Packages.send_excel_as_response import send_excel_as_response
+
 app = Flask(__name__)
 CORS(app)
 
@@ -59,6 +61,13 @@ def save_record():
     records_df = pd.DataFrame.from_records(records_df)
     records_df.to_excel(os.path.join(records_folder, filename), index=False)
     return "Success"
+
+
+@app.route("/download_table", methods=["POST"])
+def download_table():
+    data = request.json
+    records_dict = data["recordsTable"]
+    return send_excel_as_response(content_dict=records_dict)
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@ import NavigationBar from "../NavigationBar";
 import {useEffect, useState} from "react";
 import "./ViewPartWindow.css"
 import {Grid} from "@mui/material";
-import {Button} from "react-bootstrap";
+import {Button, Spinner} from "react-bootstrap";
 import PartsListSelector from "./PartsListSelector";
 import SelectedPartPlot from "./SelectedPartPlot";
 import RecordsTable from "./RecordsTable";
@@ -18,6 +18,7 @@ const ViewPartWindow = (props) => {
     const [allParts, setallParts] = useState([])
     const [selectedPart, setSelectedPart] = useState('')
     const [recordsTable, setRecordsTable] = useState([])
+    const [isDownloading, setIsDownloading] = useState(false)
 
     // usar el localstorage para cargar los datos del avion
     const getPlaneData = () => {
@@ -69,13 +70,43 @@ const ViewPartWindow = (props) => {
         saveRecordChanges(records)
     }
 
+    // descargar informe que se esta editando
+    const downloadRecord = () => {
+        setIsDownloading(true)
+        const body = {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify({recordsTable: recordsTable})
+        }
+        fetch(`http://localhost:5000/download_table`, body)
+            .then(res => res.blob())
+            .then(blob => {
+                let FileSaver = require('file-saver');
+                FileSaver.saveAs(blob, `export-${filename}`);
+            })
+            .then(r => r)
+            .catch(e => alert("There was an error exporting the file."))
+            .finally(() => setIsDownloading(false))
+    }
+
+    const downloadButton = () => {
+        return (
+            <Button onClick={downloadRecord} className={'download-button'} disabled={isDownloading}>
+                {isDownloading ? "Downloading..." : "Export Records"}
+                {isDownloading ? <Spinner animation="border" className={"loading-icon"}></Spinner> : ""}
+            </Button>
+        )
+    }
+
     if (allPoints.length*allParts.length === 0) {
         return
     }
 
     return (
         <div>
-            <NavigationBar planeName={planeName} planeType={planeType}/>
+            <NavigationBar planeName={planeName} planeType={planeType} downloadButton={downloadButton}/>
                 <Grid container rowSpacing={1} columnSpacing={1} height={"93vh"} justifyContent={"center"} alignItems={"center"} display={"flex"} marginTop={0} padding={"1%"} item={true}>
                     <Grid xs={6} className={'part-view-container'} item={true}>
                         <Grid container rowSpacing={1} columnSpacing={1} height={"93vh"} justifyContent={"center"} alignItems={"center"} display={"flex"} padding={"2%"} paddingLeft={0} item={true}>

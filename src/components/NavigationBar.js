@@ -26,6 +26,13 @@ const NavigationBar = (props) => {
         )
     }
 
+    const downloadRecordsButton = () => {
+        if (props.downloadButton === undefined) return
+        return (
+            props.downloadButton()
+        )
+    }
+
     return (
         <Navbar bg="primary" variant="dark">
             <Container>
@@ -41,6 +48,7 @@ const NavigationBar = (props) => {
                     <Nav.Link href="/part_view" className={partClicked ? 'active-tab' : ''}>Part View</Nav.Link>
                 </Nav>
             </Container>
+            {downloadRecordsButton()}
             {selectQuadrantButton()}
         </Navbar>
 

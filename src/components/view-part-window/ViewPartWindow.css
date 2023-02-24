@@ -72,3 +72,12 @@
     background: none;
     width: max-content !important;
 }
+
+.download-button {
+    margin-top: 0;
+    margin-right: 20px;
+}
+.loading-icon {
+    height: 20px;
+    width: 20px;
+}
