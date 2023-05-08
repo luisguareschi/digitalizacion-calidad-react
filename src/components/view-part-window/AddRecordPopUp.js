@@ -46,7 +46,7 @@ const AddRecordPopUp = (props) => {
         }
 
         props.addRecord(data)
-        // props.onHide()
+        props.onHide()
     }
 
     if (props.registeredPoints.includes(props.pointData.id)) {
@@ -60,6 +60,7 @@ const AddRecordPopUp = (props) => {
             centered
             dialogClassName={'add-record-pop-up-container'}
             size={'lg'}
+            autoFocus={true}
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">

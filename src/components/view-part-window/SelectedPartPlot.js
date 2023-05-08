@@ -121,6 +121,9 @@ const SelectedPartPlot = (props) => {
     }
 
     const handlePlotClicked = (event) => {
+        if (showPopUp) {
+            return
+        }
         let pointData = event.points[0].text
         if (props.registeredPoints.includes(pointData.id)) {
             alert("This point has already been registered")
@@ -128,6 +131,10 @@ const SelectedPartPlot = (props) => {
         }
         setClickedPointData(pointData)
         setShowPopUp(true)
+    }
+
+    const hidePopUp = () => {
+        setShowPopUp(false)
     }
     return (
         <>
@@ -156,7 +163,7 @@ const SelectedPartPlot = (props) => {
                 </div>
             </AnimatePresence>
             <AddRecordPopUp show={showPopUp}
-                            onHide={()=>setShowPopUp(false)}
+                            onHide={hidePopUp}
                             pointData={clickedPointData}
                             addRecord={props.addRecord}
                             registeredPoints={props.registeredPoints}
