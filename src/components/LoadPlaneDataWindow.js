@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import LoadingWindow from "./LoadingWindow";
 import {json, useNavigate} from "react-router-dom";
+import flaskAddress from "./flaskAddress";
 
 const LoadPlaneDataWindow = (props) => {
     let navigate = useNavigate();
@@ -20,7 +21,7 @@ const LoadPlaneDataWindow = (props) => {
             },
             body: JSON.stringify({'type': planeType})
         }
-        fetch("http://localhost:5000/get_xlsx", msg)
+        fetch(`${flaskAddress}get_xlsx`, msg)
             .then(response => response.json())
             .then(json => {
                 setallPoints(json)
@@ -36,7 +37,7 @@ const LoadPlaneDataWindow = (props) => {
             },
             body: JSON.stringify({'type': `PARTES_INTERES_${planeType}`})
         }
-        fetch("http://localhost:5000/get_xlsx", msg)
+        fetch(`${flaskAddress}get_xlsx`, msg)
             .then(response => response.json())
             .then(json => {
                 setallParts(json)
@@ -52,7 +53,7 @@ const LoadPlaneDataWindow = (props) => {
             },
             body: JSON.stringify({'filename': file})
         }
-        fetch("http://localhost:5000/get_record", msg)
+        fetch(`${flaskAddress}get_record`, msg)
             .then(response => response.json()
                 .then(json => {
                     setRecordsTable(json)

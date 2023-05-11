@@ -8,6 +8,7 @@ import SelectedPartPlot from "./SelectedPartPlot";
 import RecordsTable from "./RecordsTable";
 import LoadPlaneDataWindow from "../LoadPlaneDataWindow";
 import {useNavigate} from "react-router-dom";
+import flaskAddress from "../flaskAddress";
 
 const ViewPartWindow = (props) => {
     let navigate = useNavigate();
@@ -49,7 +50,7 @@ const ViewPartWindow = (props) => {
             },
             body: JSON.stringify({'filename': filename, 'recordsTable': records})
         }
-        fetch("http://localhost:5000/save_record", msg)
+        fetch(`${flaskAddress}save_record`, msg)
             .then(response => response)
             .catch(error => alert("There was an error saving the changes"))
     }
@@ -80,7 +81,7 @@ const ViewPartWindow = (props) => {
             },
             body: JSON.stringify({recordsTable: recordsTable})
         }
-        fetch(`http://localhost:5000/download_table`, body)
+        fetch(`${flaskAddress}download_table`, body)
             .then(res => res.blob())
             .then(blob => {
                 let FileSaver = require('file-saver');

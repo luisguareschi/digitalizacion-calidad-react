@@ -1,6 +1,6 @@
 
 
-const flaskAddress = "http://192.168.1.47:5000/"
+const flaskAddress = "http://34.73.126.80:80/"
 
 export default flaskAddress
 

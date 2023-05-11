@@ -4,6 +4,7 @@ import "./SelectPlaneWindow.css"
 import {useNavigate} from "react-router-dom";
 import {AnimatePresence, motion} from "framer-motion"
 import {Menu, MenuItem} from "@mui/material";
+import flaskAddress from "../flaskAddress";
 
 const SelectPlaneWindow = () => {
     let navigate = useNavigate();
@@ -20,7 +21,7 @@ const SelectPlaneWindow = () => {
                 'Content-Type':'application/json'
             }
         }
-        fetch("http://localhost:5000/get_planes_list", body)
+        fetch(`${flaskAddress}get_planes_list`, body)
             .then(response => response.json())
             .then(json => {
                 // ordenar por fecha de modifiacion
@@ -105,7 +106,7 @@ const SelectPlaneWindow = () => {
                 },
                 body: JSON.stringify({filename: selectedPlane})
             }
-            fetch("http://localhost:5000/delete_record", body).then(r => r)
+            fetch(`${flaskAddress}delete_record`, body).then(r => r)
         }
         handleClose()
     }

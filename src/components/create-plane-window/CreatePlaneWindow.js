@@ -5,6 +5,7 @@ import {IoIosArrowBack}  from "react-icons/io"
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion"
+import flaskAddress from "../flaskAddress";
 
 const CreatePlaneWindow = (props) => {
     const [planeName, setplaneName] = useState('')
@@ -35,7 +36,7 @@ const CreatePlaneWindow = (props) => {
             },
             body: JSON.stringify(data)
         }
-        fetch("http://localhost:5000/create_record", msg)
+        fetch(`${flaskAddress}create_record`, msg)
             .then(response => response)
         localStorage.setItem('selected_plane', file_name)
         navigate("/load_plane")
